@@ -1,5 +1,6 @@
 #include "libraries.h"
 #include "functions.h"
+#include "stive_liste.h"
 
 void citire_variabile(int *T, int *N, int *M, int *K, FILE *fileIn)
 {
@@ -101,7 +102,7 @@ void aplicare_reguli(char **a, short **b, int N, int M)
 }
 
 void task_1(char **a, int N, int M, int K, FILE *fileOut)
-{    
+{
     short **b = (short **) malloc(N * sizeof(short *)); //matrice in care tin minte numarul vecinilor fiecarui element
 
     if (b == NULL)
@@ -135,5 +136,96 @@ void task_1(char **a, int N, int M, int K, FILE *fileOut)
     }
     
     free_a(a, N);
-    free_b(b, M);
+    free_b(b, N);
+}
+
+void task_2(char **a, int N, int M, int K, FILE *fileOut)
+{    
+    short **b = (short **) malloc(N * sizeof(short *)); //matrice in care tin minte numarul vecinilor fiecarui element
+
+    if (b == NULL)
+    {
+        printf("Eroare la alocarea memoriei");
+
+        free_b(b, N);
+        exit(1);
+    } 
+
+    for (int i = 0; i < N; i++)
+    {
+        b[i] = (short *) malloc(M * sizeof (short));
+
+        if (b[i] == NULL)
+        {
+            free_b(b, N);
+            exit(1);
+        }
+    }
+
+    char **copie = (char **) malloc(N * sizeof(char *)); //matrice in care copiez matricea a
+
+    if (copie == NULL)
+    {
+        printf("Eroare la alocarea memoriei");
+
+        free_a(copie, N);
+        exit(1);
+    } 
+
+    for (int i = 0; i < N; i++)
+    {
+        copie[i] = (char *) malloc(M * sizeof (char));
+
+        if (b[i] == NULL)
+        {
+            free_a(copie, N);
+            exit(1);
+        }
+    }
+
+    Node *head = NULL; //crearea listei de stive
+
+    for (int i = 0; i < K; i++) //calcularea generatiilor de K ori
+    {
+        generatie_matrice(a, b, N, M);
+
+        createStack(&head); //crearea unei noi stive
+
+        for (int i2 = 0; i2 < N; i2++)
+        {
+            for (int j2 = 0; j2 < M; j2++)
+            {
+                copie[i2][j2] = a[i2][j2]; //copierea matricei a in copie
+            }
+        }
+
+        aplicare_reguli(a, b, N, M);        
+        
+        for (int i2 = N - 1; i2 >= 0; i2--)
+        {
+            for (int j2 = M - 1; j2 >= 0; j2--)
+            {
+                if (a[i2][j2] != copie[i2][j2]) //daca s-a modificat matricea
+                {
+                    add(head, i2, j2); //adaug in lista de stive pozitiile unde se modifica matricea
+                }
+            }
+        }
+
+        for (int i2 = 0; i2 < N; i2++)
+        {
+            for (int j2 = 0; j2 < M; j2++)
+            {
+                copie[i2][j2] = a[i2][j2]; 
+            }
+        }
+
+    }
+
+    printNode(head, fileOut); //afisarea listei de stive
+
+    free_a(a, N);
+    free_b(b, N);
+    free_node(head); 
+    free_a(copie, N);
 }

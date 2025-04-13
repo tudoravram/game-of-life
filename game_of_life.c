@@ -1,6 +1,6 @@
 #include "libraries.h"
 #include "functions.h"
-#include "stive.h"
+#include "stive_liste.h"
 
 int main(int argc, const char *argv[])
 {
@@ -17,7 +17,7 @@ int main(int argc, const char *argv[])
     int N, M, K, T;
 
     citire_variabile(&T, &N, &M, &K, fileIn);
-
+    
     a = (char **) malloc(N * sizeof(char *));
 
     if (a == NULL)
@@ -55,10 +55,14 @@ int main(int argc, const char *argv[])
     {
         task_1(a, N, M, K, fileOut);
     }
-    
+    else if (T == 2)
+    {
+        task_2(a, N, M, K, fileOut);
+    }
     free_a(a, N);
     
     fclose(fileIn);
     fclose(fileOut);
+
     return 0;
 }

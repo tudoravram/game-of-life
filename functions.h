@@ -13,3 +13,5 @@ void generatie_matrice(char **a, short **b, int N, int M);
 void aplicare_reguli(char **a, short **b, int N, int M);
 
 void task_1(char **a, int N, int M, int K, FILE *fileOut);
+
+void task_2(char **a, int N, int M, int K, FILE *fileOut);
