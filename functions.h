@@ -11,6 +11,7 @@ int numar_vecini(char **a, int N, int M, int i, int j);
 void generatie_matrice(char **a, short **b, int N, int M);
 
 void aplicare_reguli(char **a, short **b, int N, int M);
+void aplicare_reguli_2(char **a, short **b, int N, int M);
 
 void task_1(char **a, int N, int M, int K, FILE *fileOut);
 

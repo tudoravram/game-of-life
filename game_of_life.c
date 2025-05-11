@@ -1,7 +1,7 @@
 #include "libraries.h"
 #include "functions.h"
 #include "stive_liste.h"
-
+#include "arbori.h"
 int main(int argc, const char *argv[])
 {
 
@@ -59,6 +59,19 @@ int main(int argc, const char *argv[])
     {
         task_2(a, N, M, K, fileOut);
     }
+    else if (T == 3)
+    {
+        afisare(a, N, M, fileOut);
+
+        Tree* root = preinitializare(K);
+        parcurgere(root, 0, a, N, M, K, fileOut);
+        afisare(a, N, M, fileOut);
+        afisare_task3(root, N, M, fileOut);
+        free_tree(root);
+    }
+
+    
+
     free_a(a, N);
     
     fclose(fileIn);

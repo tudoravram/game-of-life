@@ -101,6 +101,20 @@ void aplicare_reguli(char **a, short **b, int N, int M)
     }
 }
 
+void aplicare_reguli_2(char **a, short **b, int N, int M)
+{
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            if (b[i][j] == 2)
+            {
+                a[i][j] = 'X';
+            }
+        }
+    }
+}
+
 void task_1(char **a, int N, int M, int K, FILE *fileOut)
 {
     short **b = (short **) malloc(N * sizeof(short *)); //matrice in care tin minte numarul vecinilor fiecarui element
@@ -193,7 +207,7 @@ void task_2(char **a, int N, int M, int K, FILE *fileOut)
 
         for (int i2 = 0; i2 < N; i2++)
         {
-            for (int j2 = 0; j2 < M; j2++)
+            for (int j2 = 00; j2 < M; j2++)
             {
                 copie[i2][j2] = a[i2][j2]; //copierea matricei a in copie
             }
