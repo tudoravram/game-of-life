@@ -2,6 +2,8 @@
 #include "functions.h"
 #include "stive_liste.h"
 #include "arbori.h"
+#include "bonus.h"
+
 int main(int argc, const char *argv[])
 {
 
@@ -65,12 +67,19 @@ int main(int argc, const char *argv[])
 
         Tree* root = preinitializare(K);
         parcurgere(root, 0, a, N, M, K, fileOut);
-        afisare(a, N, M, fileOut);
+
         afisare_task3(root, N, M, fileOut);
+        
         free_tree(root);
     }
+    else if (T == 5) // task 2 - bonus
+    {
+        Stiva *top = NULL; //stiva in care tinem minte listele cu pozitii
+        
+        citire_stiva(&top, K, fileIn);
 
-    
+        task_bonus(a, N, M, K, &top, fileOut);
+    }
 
     free_a(a, N);
     

@@ -101,7 +101,7 @@ void aplicare_reguli(char **a, short **b, int N, int M)
     }
 }
 
-void aplicare_reguli_2(char **a, short **b, int N, int M)
+void aplicare_reguli_2(char **a, short **b, int N, int M, char **copie)
 {
     for (int i = 0; i < N; i++)
     {
@@ -111,6 +111,7 @@ void aplicare_reguli_2(char **a, short **b, int N, int M)
             {
                 a[i][j] = 'X';
             }
+            else a[i][j] = copie[i][j];
         }
     }
 }

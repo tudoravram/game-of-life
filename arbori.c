@@ -24,7 +24,9 @@ Tree* preinitializare(int K)
 void parcurgere(Tree* root, int regula, char **a, int N, int M, int K, FILE *fileOut)
 {
     if (root == NULL)
+    {
         return;
+    }
 
     if (regula == 1)
     {
@@ -150,8 +152,8 @@ void parcurgere(Tree* root, int regula, char **a, int N, int M, int K, FILE *fil
                 }
             }
 
-            generatie_matrice(a, b, N, M);
-            aplicare_reguli_2(a, b, N, M);
+            generatie_matrice(a, b, N, M); // vecini
+            aplicare_reguli_2(a, b, N, M, copie);
             
             for (int i = 0; i < N; i++)
             {
@@ -194,8 +196,9 @@ void parcurgere(Tree* root, int regula, char **a, int N, int M, int K, FILE *fil
 void afisare_task3(Tree* root, int N, int M, FILE *fileOut)
 {
     if (root == NULL)
+    {
         return;
-
+    }
     char **mat = (char **) malloc(N * sizeof(char *));
     if (mat == NULL)
     {
@@ -256,7 +259,8 @@ void free_tree(Tree* root)
     free_tree(root->left);
     free_tree(root->right);
     List* current = root->lista;
-    while (current != NULL) {
+    while (current != NULL) 
+    {
         List* temp = current;
         current = current->next;
         free(temp); 
