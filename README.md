@@ -22,4 +22,4 @@ Functiile principale folosite in program sunt:
 - generatie_matrice() care creeaza o matrice in care, pe fiecare pozitie, tin minte numarul vecinilor fiecarui element
 - numar_vecini() care calculeaza cate celule vii invecineaza celula curenta
 
-Pentru rulare trebuie instalat checker-ul (), alaturi de InputData si RefData (pentru verificare).
+Pentru rulare trebuie instalat checker-ul, alaturi de InputData si RefData (pentru verificare).
