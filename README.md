@@ -21,3 +21,5 @@ Functiile principale folosite in program sunt:
 - aplicare_reguli2() care modifica o matrice folosind regula B, adica cea de la Task 3
 - generatie_matrice() care creeaza o matrice in care, pe fiecare pozitie, tin minte numarul vecinilor fiecarui element
 - numar_vecini() care calculeaza cate celule vii invecineaza celula curenta
+
+Pentru rulare trebuie instalat checker-ul (), alaturi de InputData si RefData (pentru verificare).
