@@ -1,4 +1,4 @@
-Programul se invarte in jurul Game of Life. Acesta e impartit in 4 taskuri:
+Programul se invarte in jurul Game of Life (mai multe informatii aici: https://site-pa.netlify.app/proiecte/game_of_life/). Acesta e impartit in 4 taskuri:
 
 Task 1: Implementarea regulilor Game of Life in functie de un numar de "K" generatii date
 
