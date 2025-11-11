@@ -1,25 +1,51 @@
-Programul se invarte in jurul Game of Life (mai multe informatii aici: https://site-pa.netlify.app/proiecte/game_of_life/). Acesta e impartit in 4 taskuri principale si un subtask bonus:
+The program revolves around Conway’s Game of Life (more information here: https://site-pa.netlify.app/proiecte/game_of_life/
+).
+It is divided into 4 main tasks and one bonus subtask:
 
-Task 1: Implementarea regulilor Game of Life in functie de un numar de "K" generatii date
+Task 1:
+Implement the rules of the Game of Life based on a given number K of generations.
 
-Task 2: In functie de regulile Game of Life, se retin intr-o stiva de liste adresele (indicii i si j) celulelor care isi schimmba starea.
+Task 2:
+According to the Game of Life rules, store in a stack of lists the addresses (indices i and j) of the cells that change their state.
 
-Task 2 - bonus: Inversul Task-ului 2; in functie de stiva care contine pozitiile celulelor care isi schimba starea, se ajunge la matricea initiala
+Task 2 – Bonus:
+The reverse of Task 2:
+Based on the stack that contains the positions of the cells that changed their state, reconstruct the initial matrix.
 
-Task 3: Se creaza un arbore binar perfect de inaltimea K, unde K este numarul de generatii date, in care, in fiecare nod se va tine minte generatia curenta a matricei dupa aplicarea regulilor. Apare o noua regula (regula B), oricare celula cu exact 2 vecini vii devine vie. La fiecare nod, fiului din stanga i se va aplica regula B, iar celui din dreapta regula A.
+Task 3:
+Create a perfect binary tree of height K (where K is the number of given generations).
+Each node stores the current generation of the matrix after applying the rules.
+A new rule (Rule B) is introduced:
 
-Task 4: Matricea acum va fi vazuta ca un graf. Toate celulele care au vecini vii vor compune o componenta conexa. Scopul este cautarea celui mai lung lant Hamiltonian.
+Any cell with exactly 2 live neighbors becomes alive.
 
-Proiectul este impartit in mai multe fisiere ".c" si ".h". 
-game_of_life.c este main-ul programului. 
-functions.c contine functiile principale folosite in Task 1, 2 si 3. 
-stive_liste.c contine functii folosite pentru Task 2, iar stive_liste.h structurile folosite acolo
-bonus.c si bonus.h sunt folosite strict pentru Task 2 - bonus
+At each node:
 
-Functiile principale folosite in program sunt: 
-- aplicare_reguli() care modifica o matrice folosind regula A, adica cea standard (Game of Life)
-- aplicare_reguli2() care modifica o matrice folosind regula B, adica cea de la Task 3
-- generatie_matrice() care creeaza o matrice in care, pe fiecare pozitie, tin minte numarul vecinilor fiecarui element
-- numar_vecini() care calculeaza cate celule vii invecineaza celula curenta
+The left child applies Rule B,
+The right child applies Rule A (the standard rule).
 
-Pentru rulare trebuie instalat checker-ul, alaturi de InputData si RefData (pentru verificare).
+File Structure:
+
+game_of_life.c – contains the main function.
+
+functions.c – contains the main functions used in Tasks 1, 2, and 3.
+
+stive_liste.c – contains functions used for Task 2.
+
+stive_liste.h – contains the structures used in Task 2.
+
+bonus.c and bonus.h – used exclusively for the Task 2 Bonus.
+
+Main Functions Used:
+
+aplicare_reguli() – modifies a matrix using Rule A (standard Game of Life rule).
+
+aplicare_reguli2() – modifies a matrix using Rule B (introduced in Task 3).
+
+generatie_matrice() – creates a matrix that stores, for each position, the number of live neighbors.
+
+numar_vecini() – calculates how many live cells surround the current cell.
+
+Execution:
+
+To run the program, install the checker along with InputData and RefData (used for verification).
